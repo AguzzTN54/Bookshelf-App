@@ -1,0 +1,71 @@
+@import url('./header.css');
+@import url('./content.css');
+@import url('./add-book.css');
+
+:root {
+  --primary-color: #ff6092;
+  --secondary-color: #efefef;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+body {
+  background-image: linear-gradient(135deg, #ebc0d3, #96bbe8);
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  padding: 1rem;
+  color: #1c262c;
+}
+
+body,
+input,
+button {
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+input,
+button {
+  font-size: 1rem;
+  border: 0;
+}
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+span {
+  color: #ff6092;
+}
+
+section {
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 1rem 2rem 1rem;
+  display: block;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 755px) {
+  html {
+    font-size: 14px;
+  }
+  body {
+    height: unset;
+    min-height: 100vh;
+  }
+  section {
+    height: unset;
+    min-height: 100%;
+  }
+}

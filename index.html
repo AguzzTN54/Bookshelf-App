@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://file.myfontastic.com/bfaJrktYpcpaUMgxEPHaUk/icons.css"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/style.css" />
+    <title>BookShelf Apps</title>
+  </head>
+  <body>
+    <section>
+      <header>
+        <div class="left">
+          <form>
+            <input
+              type="text"
+              name="query"
+              placeholder="Find Book by Title, Author or ISBN"
+              autocomplete="false"
+            />
+            <button>
+              <i class="ba-search"></i>
+            </button>
+          </form>
+        </div>
+        <div class="right">
+          <h1>Bookshelf <span> App</span></h1>
+        </div>
+      </header>
+
+      <div class="container">
+        <div class="left">
+          <h2>You have <span> 7 Books</span> to read</h2>
+          <div class="unfinished">
+            <h3>Unfinished</h3>
+            <div class="list">
+              <ul class="book-list"></ul>
+            </div>
+
+            <div class="pagination">
+              <ul>
+                <li>
+                  <a href="">&laquo;</a>
+                </li>
+                <li><a href="">1</a></li>
+                <li class="active"><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li>
+                  <a href="">&raquo;</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="finished">
+            <h3>Finished</h3>
+            <div class="list">
+              <ul class="book-list"></ul>
+            </div>
+            <div class="pagination">
+              <ul>
+                <li><a href="">&laquo;</a></li>
+                <li><a href="">1</a></li>
+                <li class="active"><a href="">2</a></li>
+                <li><a href="">3</a></li>
+                <li><a href="">&raquo;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="right addbook">
+          <h2 style="text-align: center">Add New Book</h2>
+          <form action="">
+            <div class="form-group">
+              <label for="title">Book Title</label>
+              <input
+                type="text"
+                name="book"
+                id="title"
+                placeholder="Fantastic Beast and Where to Find Them"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="author">Author</label>
+              <input
+                type="text"
+                name="author"
+                id="author"
+                placeholder="JK. Rowling"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="isbn">ISBN</label>
+              <input
+                type="text"
+                name="isbn"
+                id="isbn"
+                placeholder="(Optional)"
+              />
+            </div>
+            <div class="form-group">
+              <label for="year">Year</label>
+              <input
+                type="number"
+                name="year"
+                id="year"
+                placeholder="2009"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <input type="checkbox" name="finish" id="finish" />
+              <label
+                for="finish"
+                style="position: relative; padding-left: 2rem"
+              >
+                <div class="checkmark"></div>
+                <span style="color: initial"> Finished Reading ?</span>
+              </label>
+            </div>
+            <div class="form-group" style="text-align: center">
+              <input type="submit" value="Add to Bookshelf" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script src="./modules/index.js"></script>
+  </body>
+</html>
