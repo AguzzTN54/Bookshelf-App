@@ -7,7 +7,7 @@ const mainBookState = {
 const MainBooks = () => {
   return `
     <h2> You have
-      <span> ${MainBooks.state.unfinished}
+      <span> ${MainBooks.state.unfinished || 0}
       Book${MainBooks.state.unfinished > 0 ? 's' : ''}
       </span>
       to read

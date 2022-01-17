@@ -88,15 +88,7 @@ const App = () => {
 };
 
 const appHandler = {
-  set: function (state, key, value) {
-    if (key === 'books') {
-      state.books = value;
-      state.bookCount = value.length;
-      state.unFinished = value.filter(({ isComplete }) => !isComplete).length;
-      $('section').innerHTML = App();
-      return;
-    }
-  },
+  set: function (state, key, value) {},
 };
 
 App.state = new Proxy(appState, appHandler);

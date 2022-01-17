@@ -15,10 +15,8 @@ const scripts = [
   'app',
 ];
 
-window.addEventListener('DOMContentLoaded', () => {
-  scripts.forEach((script) => {
-    const newScript = document.createElement('script');
-    newScript.src = `./modules/${script}.js`;
-    document.body.append(newScript);
-  });
+scripts.forEach((script, i) => {
+  const newScript = document.createElement('script');
+  newScript.src = `./modules/${script}.js`;
+  document.body.append(newScript);
 });

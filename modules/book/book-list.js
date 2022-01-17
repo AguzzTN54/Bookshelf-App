@@ -40,6 +40,11 @@ class BookList extends HTMLElement {
     bookContainer.innerHTML = '';
 
     const dataToShow = this._getPageContent();
+
+    // If No book, show message
+    if (dataToShow.length === 0) return this._emptyBook();
+
+    // show Book
     dataToShow.forEach((data) => {
       const li = document.createElement('li');
       const bookItem = document.createElement('book-item');
@@ -62,6 +67,15 @@ class BookList extends HTMLElement {
     }
   }
 
+  _emptyBook() {
+    const bookContainer = this.querySelector('.book-list');
+    bookContainer.innerHTML = `
+      <div class="empty">
+        No Book to show, <br/> You can <span>Add More Book</span>
+      </div>
+    `;
+  }
+
   connectedCallback() {
     this._type = this.getAttribute('type');
     this.render();
@@ -71,7 +85,6 @@ class BookList extends HTMLElement {
 
   set books(data) {
     this._books = data;
-    this.render();
     this._showBookList();
     window.addEventListener('resize', this._setListContainerHeight.bind(this));
   }
@@ -86,21 +99,12 @@ class BookList extends HTMLElement {
         ${heading}  
       </h3>
       <div class="list">
-        <ul class="book-list"></ul>
+        <ul class="book-list">
+        </ul>
       </div>
 
       <div class="pagination">
-        <ul>
-          <li>
-            <a href="">&laquo;</a>
-          </li>
-          <li><a href="">1</a></li>
-          <li class="active"><a href="">2</a></li>
-          <li><a href="">3</a></li>
-          <li>
-            <a href="">&raquo;</a>
-          </li>
-        </ul>
+        <ul></ul>
       </div>`;
   }
 }

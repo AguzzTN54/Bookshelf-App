@@ -43,6 +43,12 @@
   height: 100%;
 }
 
+.empty {
+  padding: 3rem 2rem 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
 .book-list {
   list-style: none;
   display: flex;
