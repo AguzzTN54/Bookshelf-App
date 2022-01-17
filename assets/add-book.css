@@ -1,5 +1,8 @@
 .addbook {
-  padding: 0 1.5rem;
+  padding: 0 1.5rem 1rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 1.5rem;
+  width: 100%;
 }
 
 .form-group {
@@ -91,4 +94,10 @@ label {
 
 .form-group input[type='submit']:hover {
   background-color: #f3427a;
+}
+
+@media screen and (max-width: 755px) {
+  .addbook {
+    margin-top: 2rem;
+  }
 }

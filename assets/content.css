@@ -52,10 +52,8 @@
 
 .book-list li {
   list-style: none;
-  display: flex;
-  align-items: center;
   height: 100%;
-  font-size: 0.9rem;
+  max-height: 50px;
   border-bottom: 1px solid var(--secondary-color);
   margin-right: 2rem;
 }
@@ -64,7 +62,14 @@
   border-width: 0;
 }
 
-.book-list li::before {
+book-item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  font-size: 0.9rem;
+}
+
+book-item::before {
   font-family: 'bookshelf-apps' !important;
   font-style: normal !important;
   font-weight: normal !important;
@@ -106,14 +111,21 @@
   padding: 0.1rem 0.5rem;
   border-radius: 1rem;
   font-size: 0.9em;
-  white-space: nowrap;
 }
 .author {
+  text-align: center;
   color: #2dabd1;
   background-color: #dcf5fa;
+  width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 .year {
   color: #d88237;
+  white-space: nowrap;
   background-color: #fceadc;
 }
 
@@ -141,9 +153,10 @@
 }
 
 .pagination li a,
-.pagination li span,
+.pagination li button,
 .edit,
-.delete {
+.delete,
+.check {
   padding: 0.2rem 0.5rem;
   font-size: 0.8rem;
   margin: 0 0.1rem;
@@ -153,37 +166,43 @@
 }
 
 .edit,
-.delete {
+.delete,
+.check {
   padding: 0.4rem 0.5rem 0.2rem;
   border-radius: 0.3rem;
+  border: 0;
 }
 .edit {
   color: #555;
-  border: 0;
 }
 .edit:hover {
-  background-color: #559e76;
+  background-color: #2dabd1;
   color: #fff;
 }
-
 .delete {
   color: var(--primary-color);
-  border: 0;
 }
 .delete:hover {
   color: #fff;
   background-color: var(--primary-color);
 }
+.check {
+  color: #559e76;
+}
+.check:hover {
+  background-color: #559e76;
+  color: #fff;
+}
 
-.pagination li:hover span,
-.pagination li:hover a {
+.pagination li:hover a,
+.pagination li:hover button {
   padding: 0.2rem 0.5rem;
   font-size: 0.8rem;
   margin: 0 0.1rem;
   border: 1px solid #ccc;
 }
 
-.pagination li.active a {
+.pagination li button.active {
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
@@ -192,23 +211,35 @@
   .container {
     flex-direction: column;
     padding: 0;
-    /* max-height: 250vh; */
     height: unset;
+  }
+
+  .finished {
+    margin-top: 2rem;
   }
 
   .container .right {
     height: unset;
   }
 
-  .book-list li {
+  book-item {
+    padding: 0.5rem 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container .info {
+    justify-content: space-between;
+  }
+
+  book-item {
     flex-direction: column;
     margin-right: 0.2rem;
     padding: 0.5rem 0.2rem;
     padding-left: 1.5rem;
     position: relative;
   }
-
-  .book-list li::before {
+  book-item::before {
     left: 0;
     position: absolute;
   }
