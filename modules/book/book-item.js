@@ -3,6 +3,8 @@ class BookItem extends HTMLElement {
     this._book = book;
     this.setAttribute('id', `book${book.id}`);
     this.render();
+    if (book.new) this.classList.add('new');
+    if (BookForm.state.data.id === book.id) this.classList.add('editing');
   }
 
   render() {
@@ -48,7 +50,12 @@ class BookItem extends HTMLElement {
   _changeCompleteStatus() {
     const { id, isComplete } = this._book;
     localBook.edit(id, { isComplete: !isComplete });
-    setState(MainBooks, { books: localBook.getAll() });
+    setState(MainBooks, {
+      books: localBook.getAll().map((item, i) => {
+        if (i === 0) item.new = 'true';
+        return item;
+      }),
+    });
 
     // Clear Edit Form when user check or uncheck complete status on list
     if (BookForm.state.data.id === id) setState(BookForm, { data: {} });

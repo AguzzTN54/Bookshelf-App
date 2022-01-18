@@ -69,7 +69,11 @@
 }
 
 .editing {
-  background-color: var(--secondary-color);
+  background-color: #f0f9f9;
+}
+
+.new {
+  animation: forwards 2s spawn-primary;
 }
 
 book-item {

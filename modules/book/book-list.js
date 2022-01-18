@@ -57,7 +57,7 @@ class BookList extends HTMLElement {
   _setListContainerHeight() {
     const list = this.querySelector('.list');
     const count =
-      window.innerWidth > 755 ? parseInt(list.clientHeight / 42) : 6;
+      window.innerWidth > 755 ? parseInt(list.clientHeight / 40) : 6;
     const oldItemPerPage = this._itemPerPage;
     const newItemPerPage = count < 1 ? 1 : count;
     if (oldItemPerPage !== newItemPerPage) {

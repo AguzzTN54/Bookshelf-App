@@ -66,7 +66,7 @@ const BookForm = () => {
             data.id
               ? `<button type="submit" class="save">
                   <i class="ba-edit-o" style="line-height: 0; padding-right: .3rem"></i>
-                  Save Change
+                  Save Changes
                 </button>
                 <button class="cancel" onclick="cancel()"> Cancel </button>`
               : `<button type="submit">
@@ -89,11 +89,17 @@ const save = (e, mode) => {
     if (key === 'year') value = parseInt(value);
     dataToSave[key] = value;
   });
+  if (!('isComplete' in dataToSave)) dataToSave.isComplete = false;
 
   if (mode === 'edit') localBook.edit(BookForm.state.data.id, dataToSave);
   else localBook.add(dataToSave);
-  setState(MainBooks, { books: localBook.getAll() });
   setState(BookForm, { data: {} });
+  setState(MainBooks, {
+    books: localBook.getAll().map((item, i) => {
+      if (i === 0) item.new = 'true';
+      return item;
+    }),
+  });
 };
 
 const cancel = () => {
