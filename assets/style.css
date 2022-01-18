@@ -5,6 +5,7 @@
 :root {
   --primary-color: #ff6092;
   --secondary-color: #efefef;
+  --blue: #2dabd1;
 }
 * {
   padding: 0;
@@ -67,5 +68,23 @@ section {
   section {
     height: unset;
     min-height: 100%;
+  }
+}
+
+@keyframes spawn-primary {
+  0% {
+    background-color: #fcedeb;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+@keyframes spawn-blue {
+  0% {
+    background-color: #dcf5fa;
+  }
+  100% {
+    background-color: #fff;
   }
 }

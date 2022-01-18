@@ -68,11 +68,16 @@
   border-width: 0;
 }
 
+.editing {
+  background-color: var(--secondary-color);
+}
+
 book-item {
   display: flex;
   align-items: center;
   height: 100%;
   font-size: 0.9rem;
+  transition: all 0.25s;
 }
 
 book-item::before {
@@ -138,6 +143,13 @@ book-item::before {
 .action {
   display: flex;
   flex-wrap: nowrap;
+  transition: all 0.3s;
+  opacity: 1;
+}
+
+.editing .action {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* Pagination */
@@ -182,7 +194,7 @@ book-item::before {
   color: #555;
 }
 .edit:hover {
-  background-color: #2dabd1;
+  background-color: var(--blue);
   color: #fff;
 }
 .delete {

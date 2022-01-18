@@ -1,8 +1,12 @@
 .addbook {
-  padding: 0 1.5rem 1rem;
+  padding: 0 3rem 1rem;
   border: 1px solid var(--primary-color);
   border-radius: 1.5rem;
   width: 100%;
+}
+.addbook.edit-form {
+  animation: spawn-blue forwards 1.5s;
+  border: 1px solid var(--blue);
 }
 
 .form-group {
@@ -28,6 +32,11 @@ label {
   border-bottom: 2px solid var(--primary-color);
   outline: 0;
 }
+.addbook.edit-form input[type='text']:focus,
+.addbook.edit-form input[type='number']:focus {
+  border-bottom: 2px solid var(--blue);
+}
+
 .addbook input[type='text']::placeholder,
 .addbook input[type='number']::placeholder {
   opacity: 0.5;
@@ -37,6 +46,10 @@ label {
 .addbook input[type='text']:not(:placeholder-shown),
 .addbook input[type='number']:not(:placeholder-shown) {
   border-color: var(--primary-color);
+}
+.addbook.edit-form input[type='text']:not(:placeholder-shown),
+.addbook.edit-form input[type='number']:not(:placeholder-shown) {
+  border-color: var(--blue);
 }
 
 .addbook input[type='checkbox'] {
@@ -56,10 +69,17 @@ label {
   background-color: #fff;
   border: 1px solid var(--primary-color);
 }
+.addbook.edit-form .checkmark {
+  border: 1px solid var(--blue);
+}
 
-.container input[type='checkbox']:checked ~ label .checkmark {
+.addbook input[type='checkbox']:checked ~ label .checkmark {
   background-color: var(--primary-color);
 }
+.addbook.edit-form input[type='checkbox']:checked ~ label .checkmark {
+  background-color: var(--blue);
+}
+
 .checkmark:after {
   content: '';
   position: absolute;
@@ -83,22 +103,34 @@ label {
 
 .form-group button {
   margin-top: 1rem;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 2rem;
   border-radius: 0.3rem;
-  background-color: var(--primary-color);
+  background-color: #f3427a;
   color: #fff;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  vertical-align: middle;
   transition: all 0.2s;
+  white-space: nowrap;
+  opacity: 0.8;
 }
 
 .form-group button:hover {
-  background-color: #f3427a;
+  opacity: 1;
+}
+
+.form-group button i::before {
+  line-height: 0;
+}
+
+.addbook button.save {
+  background-color: var(--blue);
 }
 
 @media screen and (max-width: 755px) {
   .addbook {
     margin-top: 2rem;
+    padding: 0 1rem 1rem;
   }
 }
