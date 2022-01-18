@@ -4,6 +4,7 @@ const appState = {
 
 const App = () => {
   return `
+    <div class="popup"> </div>
     <header>
       <div class="left">
         <form>

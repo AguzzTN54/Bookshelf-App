@@ -38,6 +38,9 @@ class BookItem extends HTMLElement {
 
     const editButton = this.querySelector('.edit');
     editButton.addEventListener('click', this._editButtonHandler.bind(this));
+
+    const deleteButton = this.querySelector('.delete');
+    deleteButton.addEventListener('click', this._deleteHandler.bind(this));
   }
 
   _editButtonHandler() {
@@ -61,6 +64,10 @@ class BookItem extends HTMLElement {
     // Clear Edit Form when user check or uncheck complete status on list
     if (BookForm.state.data.id === id) setState(BookForm, { data: {} });
     return;
+  }
+
+  _deleteHandler() {
+    setState(ConfirmDelete, { data: this._book, show: true });
   }
 }
 

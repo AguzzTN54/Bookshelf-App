@@ -9,6 +9,7 @@ const setState = (component, obj) => {
 const scripts = [
   'store/localstore',
   'form/toast',
+  'form/popup-delete',
   'book/book-dummy',
   'header',
   'book/book-item',

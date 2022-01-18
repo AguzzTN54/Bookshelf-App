@@ -96,7 +96,7 @@ const save = (e, mode) => {
   setState(BookForm, { data: {} });
   setState(MainBooks, {
     books: localBook.getAll().map((item, i) => {
-      if (i === 0) item.new = 'true';
+      if (i === 0) item.new = true;
       return item;
     }),
   });
