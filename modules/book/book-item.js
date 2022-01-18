@@ -41,6 +41,7 @@ class BookItem extends HTMLElement {
   }
 
   _editButtonHandler() {
+    window.scrollTo(0, $('.addbook').offsetTop);
     const onEdit = $('.editing');
     if (onEdit) onEdit.classList.remove('editing');
     this.classList.add('editing');

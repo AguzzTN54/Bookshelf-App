@@ -30,7 +30,11 @@ const App = () => {
       <div class="right">
         ${BookForm()}
       </div>
-    </div>`;
+    </div>
+
+    <div class="toast">
+    </div>
+  `;
 };
 
 const appHandler = {

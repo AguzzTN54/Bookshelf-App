@@ -100,6 +100,7 @@ const save = (e, mode) => {
       return item;
     }),
   });
+  setState(Toast, { msg: '<i class="ba-check"></i> Book Saved !' });
 };
 
 const cancel = () => {
