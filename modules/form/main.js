@@ -77,7 +77,7 @@ const add = (e) => {
     dataToSave[key] = value;
   });
   localBook.add(dataToSave);
-  setState(MainBooks, { books: localBook.getAll().data });
+  setState(MainBooks, { books: localBook.getAll().data.reverse() });
 };
 
 const bookformState = {};

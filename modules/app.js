@@ -39,7 +39,7 @@ const appHandler = {
     if (key === 'isLoaded') {
       if (!value) return;
       $('section').innerHTML = App();
-      setState(MainBooks, { books: localBook.getAll().data });
+      setState(MainBooks, { books: localBook.getAll().data.reverse() });
     }
   },
 };

@@ -8,6 +8,7 @@ const localBook = {
   add(bookObj) {
     const { data } = this.getAll();
     bookObj.id = data.length + 1;
+    if (bookObj.isComplete === undefined) bookObj.isComplete = false;
     data.push(bookObj);
     localStorage.setItem('books', JSON.stringify({ data }));
   },
