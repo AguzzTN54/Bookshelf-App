@@ -20,7 +20,7 @@
   background-color: #fff;
   border-radius: 1rem;
   text-align: center;
-  animation: forwards popup-container 0.5s;
+  animation: forwards popup-container 0.3s;
 }
 
 .popup-container .msg {
