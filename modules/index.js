@@ -7,16 +7,25 @@ const setState = (component, obj) => {
 };
 
 const scripts = [
+  'store/localstore',
   'book/book-dummy',
   'header',
   'book/book-item',
   'book/book-list',
+  'form/main',
   'book/main',
   'app',
 ];
 
+let scCountTmp = 0;
 scripts.forEach((script, i) => {
   const newScript = document.createElement('script');
   newScript.src = `./modules/${script}.js`;
   document.body.append(newScript);
+
+  newScript.addEventListener('load', () => {
+    scCountTmp++;
+    // Show App UI when all scripts are already load
+    if (scCountTmp === scripts.length) App.state.isLoaded = true;
+  });
 });

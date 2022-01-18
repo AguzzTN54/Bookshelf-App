@@ -1,13 +1,13 @@
 const mainBookState = {
   bookCount: 0,
-  unFinished: 0,
+  unfinished: 0,
   books: [],
 };
 
 const MainBooks = () => {
   return `
     <h2> You have
-      <span> ${MainBooks.state.unfinished || 0}
+      <span> ${MainBooks.state.unfinished}
       Book${MainBooks.state.unfinished > 0 ? 's' : ''}
       </span>
       to read

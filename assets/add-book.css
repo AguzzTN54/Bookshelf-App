@@ -81,18 +81,19 @@ label {
   transform: translate(-50%, -50%) rotate(45deg);
 }
 
-.form-group input[type='submit'] {
+.form-group button {
   margin-top: 1rem;
   padding: 0.5rem 3rem;
   border-radius: 0.3rem;
   background-color: var(--primary-color);
   color: #fff;
   cursor: pointer;
-  /* opacity: 0.85; */
+  display: inline-flex;
+  align-items: center;
   transition: all 0.2s;
 }
 
-.form-group input[type='submit']:hover {
+.form-group button:hover {
   background-color: #f3427a;
 }
 
