@@ -69,9 +69,11 @@ class BookList extends HTMLElement {
 
   _emptyBook() {
     const bookContainer = this.querySelector('.book-list');
+    const msg =
+      this._type === 'unfinished' ? 'Add More Book' : 'Read More Book';
     bookContainer.innerHTML = `
       <div class="empty">
-        No Book to show, <br/> You can <span>Add More Book</span>
+        No Book to show, <br/> You can <span>${msg}</span>
       </div>
     `;
   }
