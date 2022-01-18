@@ -12,6 +12,7 @@ const scripts = [
   'form/popup-delete',
   'book/book-dummy',
   'header',
+  'book/sort',
   'book/book-item',
   'book/book-list',
   'form/main',

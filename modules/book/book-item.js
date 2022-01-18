@@ -55,8 +55,8 @@ class BookItem extends HTMLElement {
     const { id, isComplete } = this._book;
     localBook.edit(id, { isComplete: !isComplete });
     setState(MainBooks, {
-      books: localBook.getAll().map((item, i) => {
-        if (i === 0) item.new = 'true';
+      books: sortByLatestModified(localBook.getAll()).map((item, i) => {
+        if (i === 0) item.new = true;
         return item;
       }),
     });

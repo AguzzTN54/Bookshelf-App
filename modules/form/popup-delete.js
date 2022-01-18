@@ -2,7 +2,7 @@ const ConfirmDelete = () => {
   return `
     <div class="popup-content">
       <div class="popup-container">
-        <div class="msg"> Are You sure to remove <span>"${ConfirmDelete.state.data.title}"</span> from your list ?</div>
+        <div class="msg"> Are You sure to remove book with title <span>"${ConfirmDelete.state.data.title}"</span> from your list ?</div>
         <div class="confirmation">
           <button class="confirm" onclick="doDelete()"> Delete Permanently </button>
           <button class="cancel" onclick="cancelDelete()"> Cancel </button>

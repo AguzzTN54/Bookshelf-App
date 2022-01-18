@@ -95,7 +95,7 @@ const save = (e, mode) => {
   else localBook.add(dataToSave);
   setState(BookForm, { data: {} });
   setState(MainBooks, {
-    books: localBook.getAll().map((item, i) => {
+    books: sortByLatestModified(localBook.getAll()).map((item, i) => {
       if (i === 0) item.new = true;
       return item;
     }),
