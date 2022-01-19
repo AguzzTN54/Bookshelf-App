@@ -3,11 +3,24 @@
 @import url('./content.css');
 @import url('./add-book.css');
 
+@charset "UTF-8";
+
+@font-face {
+  font-family: 'bookshelf-apps';
+  src: url('fonts/bookshelf-apps.eot');
+  src: url('fonts/bookshelf-apps.eot?#iefix') format('embedded-opentype'),
+    url('fonts/bookshelf-apps.woff') format('woff'),
+    url('fonts/bookshelf-apps.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --primary-color: #ff6092;
   --secondary-color: #efefef;
   --blue: #2dabd1;
 }
+
 * {
   padding: 0;
   margin: 0;
@@ -77,6 +90,62 @@ section {
   color: #eb326c;
   font-size: 1rem;
   line-height: 0;
+}
+
+[class^='ba-']:before,
+[class*=' ba-']:before {
+  font-family: 'bookshelf-apps' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ba-delete:before {
+  content: '\61';
+}
+.ba-search:before {
+  content: '\62';
+}
+.ba-edit:before {
+  content: '\63';
+}
+.ba-circle:before {
+  content: '\64';
+}
+.ba-plus-o:before {
+  content: '\65';
+}
+.ba-check:before {
+  content: '\66';
+}
+.ba-book-open:before {
+  content: '\67';
+}
+.ba-edit-o:before {
+  content: '\6a';
+}
+.ba-close:before {
+  content: '\6b';
+}
+.ba-reset:before {
+  content: '\6c';
+}
+.ba-import:before {
+  content: '\6e';
+}
+.ba-reverse:before {
+  content: '\6d';
+}
+.ba-filter:before {
+  content: '\69';
+}
+.ba-heart:before {
+  content: '\68';
 }
 
 @media screen and (max-width: 755px) {
