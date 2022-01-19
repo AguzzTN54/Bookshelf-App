@@ -5,24 +5,7 @@ const appState = {
 const App = () => {
   return `
     <div class="popup"> </div>
-    <header>
-      <div class="left">
-        <form>
-          <input
-            type="text"
-            name="query"
-            placeholder="Find Book by Title, Author or ISBN"
-            autocomplete="false"
-          />
-          <button>
-            <i class="ba-search"></i>
-          </button>
-        </form>
-      </div>
-      <div class="right">
-        <h1>Bookshelf <span> App</span></h1>
-      </div>
-    </header>
+    <header>${Header()}</header>
 
     <div class="container">
       <div class="left">

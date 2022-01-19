@@ -9,10 +9,11 @@ class BookItem extends HTMLElement {
 
   render() {
     const { title, author, year, isComplete } = this._book;
+    const removeTag = (str) => str.replace(/(<([^>]+)>)/gi, '');
     this.innerHTML = `
-    <h4 title="${title}">${title}</h4>
+    <h4 title="${removeTag(title)}">${title}</h4>
       <div class="info">
-        <div class="author" title="${author}">${author}</div>
+        <div class="author" title="${removeTag(author)}">${author}</div>
         <div class="year">${year}</div>
         <div class="action">
           <button class="edit" title="Edit Detail">

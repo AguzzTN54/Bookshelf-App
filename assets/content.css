@@ -76,6 +76,10 @@
   animation: forwards 2s spawn-primary;
 }
 
+book-item span {
+  background-color: #ffefef;
+}
+
 book-item {
   display: flex;
   align-items: center;

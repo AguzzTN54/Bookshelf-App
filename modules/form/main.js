@@ -68,7 +68,7 @@ const BookForm = () => {
                   <i class="ba-edit-o" style="line-height: 0; padding-right: .3rem"></i>
                   Save Changes
                 </button>
-                <button class="cancel" onclick="cancel()"> Cancel </button>`
+                <button class="cancel" onclick="cancel(event)"> Cancel </button>`
               : `<button type="submit">
                   <i class="ba-plus-o" style="line-height: 0; padding-right: .3rem"></i>
                   Add to Bookshelf
@@ -103,7 +103,8 @@ const save = (e, mode) => {
   setState(Toast, { msg: '<i class="ba-check"></i> Book Saved !' });
 };
 
-const cancel = () => {
+const cancel = (e) => {
+  e.preventDefault();
   const bookListNum = $(`#book${BookForm.state.data.id}`);
   setState(BookForm, { data: {} });
   if (bookListNum) bookListNum.classList.remove('editing');

@@ -11,7 +11,7 @@ const scripts = [
   'form/toast',
   'form/popup-delete',
   'book/book-dummy',
-  'header',
+  'form/header',
   'book/sort',
   'book/book-item',
   'book/book-list',
