@@ -22,6 +22,7 @@ body {
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   padding: 1rem;
   color: #1c262c;
 }
@@ -56,6 +57,26 @@ section {
   display: block;
   border-radius: 2rem;
   overflow: hidden;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  text-align: center;
+  padding-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: -0.5rem;
+}
+.copyright a {
+  color: initial;
+  font-weight: bold;
+}
+
+.copyright i {
+  color: #eb326c;
+  font-size: 1rem;
+  line-height: 0;
 }
 
 @media screen and (max-width: 755px) {

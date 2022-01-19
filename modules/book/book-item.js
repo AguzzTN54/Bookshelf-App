@@ -5,6 +5,10 @@ class BookItem extends HTMLElement {
     this.render();
     if (book.new) this.classList.add('new');
     if (BookForm.state.data.id === book.id) this.classList.add('editing');
+    const t = setTimeout(() => {
+      clearTimeout(t);
+      this.classList.remove('new');
+    }, 2000);
   }
 
   render() {
