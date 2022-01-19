@@ -36,4 +36,8 @@ const localBook = {
     if (targetIndex > -1) data.splice(targetIndex, 1);
     localStorage.setItem('books', JSON.stringify({ data }));
   },
+
+  clear() {
+    return localStorage.clear();
+  },
 };

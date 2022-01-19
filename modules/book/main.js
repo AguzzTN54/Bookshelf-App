@@ -8,20 +8,32 @@ const mainBookState = {
 
 const MainBooks = () => {
   const { bookCount, unfinished, query } = MainBooks.state;
-  let pageTitle = `
-      You have <span>
-        ${unfinished}
-        Book${unfinished > 0 ? 's' : ''}
-      </span> to read
-    `;
+  let pageTitle =
+    query.length > 0
+      ? `
+          Discovering <span>${bookCount} </span> result for <span> "${query}" </span>
+        `
+      : `
+          You have <span>
+            ${unfinished}
+            Book${unfinished > 0 ? 's' : ''}
+          </span> to read
+        `;
 
-  if (query.length > 0)
-    pageTitle = `
-      Discovering <span>${bookCount} </span> result for <span> "${query}" </span>
-    `;
+  const resetButton =
+    bookCount > 0 && query.length === 0
+      ? `
+          <button class="reset">
+            <i class="ba-reset"></i> Reset
+          </button>
+        `
+      : '';
 
   return `
-    <h2> ${pageTitle} </h2>
+    <div class="top">
+      <h2> ${pageTitle} </h2>
+      ${resetButton}
+    </div>
     
     <book-list class="unfinished" type="unfinished">
     </book-list>
@@ -47,6 +59,8 @@ MainBooks.handler = {
       $('book-list.unfinished').books = unfinished;
       $('book-list.finished').books = finished;
       setState(MainBooks, { fromQuery: false });
+
+      $('.reset')?.addEventListener('click', resetPopup);
       return;
     }
 

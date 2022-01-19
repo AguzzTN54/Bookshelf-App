@@ -9,6 +9,11 @@
   border: 1px solid var(--blue);
 }
 
+.addbook h2 {
+  padding: 1rem 0.5rem 1rem 0;
+  display: block;
+}
+
 .form-group {
   margin: 1.2rem 0;
 }
