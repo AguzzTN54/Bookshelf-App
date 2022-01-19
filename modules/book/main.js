@@ -11,11 +11,12 @@ const MainBooks = () => {
   let pageTitle =
     query.length > 0
       ? `
-          Discovering <span>${bookCount} </span> result for <span> "${query}" </span>
+          Discovering <span>${bookCount} </span>
+          Book${unfinished > 0 ? 's' : ''}
+          for <span> "${query}" </span>
         `
       : `
-          You have <span>
-            ${unfinished}
+          You have <span> ${unfinished}
             Book${unfinished > 0 ? 's' : ''}
           </span> to read
         `;
@@ -29,10 +30,19 @@ const MainBooks = () => {
         `
       : '';
 
+  const importButton =
+    !localBook.isAlreadyImport() && query.length === 0
+      ? `
+          <button class="import">
+            <i class="ba-import"></i> Import
+          </button>
+        `
+      : ``;
+
   return `
     <div class="top">
       <h2> ${pageTitle} </h2>
-      ${resetButton}
+      ${importButton} ${resetButton}
     </div>
     
     <book-list class="unfinished" type="unfinished">
@@ -61,6 +71,7 @@ MainBooks.handler = {
       setState(MainBooks, { fromQuery: false });
 
       $('.reset')?.addEventListener('click', resetPopup);
+      $('.import')?.addEventListener('click', importPopup);
       return;
     }
 

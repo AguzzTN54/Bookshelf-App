@@ -40,4 +40,12 @@ const localBook = {
   clear() {
     return localStorage.clear();
   },
+
+  isAlreadyImport() {
+    return !!localStorage.getItem('imported');
+  },
+
+  import() {
+    return localStorage.setItem('imported', true);
+  },
 };

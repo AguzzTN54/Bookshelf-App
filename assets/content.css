@@ -36,10 +36,18 @@
   padding: 0.2rem 0.5rem 0.15rem;
   border-radius: 5rem;
   margin-left: 0.2rem;
+  opacity: 0.8;
+  transition: all 0.2s;
+}
+.top button:hover {
+  opacity: 1;
 }
 
 .top .reset {
   background-color: var(--primary-color);
+}
+.top .import {
+  background-color: #894cb3;
 }
 
 .container h3 {

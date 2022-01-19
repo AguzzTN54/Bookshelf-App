@@ -16,6 +16,7 @@ const scripts = [
   'form/popup',
   'book/book-dummy',
   'form/header',
+  'book/import-popup',
   'book/delete-popup',
   'book/reset-popup',
   'book/book-item',

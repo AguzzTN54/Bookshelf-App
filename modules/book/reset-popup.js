@@ -3,7 +3,7 @@ const resetPopup = (data) => {
   const popupContent = `
     <div class="msg"> Are You sure to <span>Wipe Out All Data</span> from your list?</div>
     <div class="confirmation">
-      <button class="confirm" onclick="resetPopup.doReset()"> Delete Permanently </button>
+      <button class="confirm" onclick="resetPopup.doReset()"> Wipe Data </button>
       <button class="cancel" onclick="resetPopup.cancelReset()"> Cancel </button>
     </div>
   `;
