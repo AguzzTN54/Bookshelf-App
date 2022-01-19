@@ -67,7 +67,7 @@ class BookItem extends HTMLElement {
   }
 
   _deleteHandler() {
-    setState(ConfirmDelete, { data: this._book, show: true });
+    deletePopup(this._book);
   }
 }
 
