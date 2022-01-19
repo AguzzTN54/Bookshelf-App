@@ -1,4 +1,6 @@
 const $ = (selector) => document.querySelector(selector);
+const removeTag = (str) => str.replace(/(<([^>]+)>)/gi, '');
+
 const setState = (component, obj) => {
   const keys = Object.keys(obj);
   return keys.forEach((key) => {
@@ -7,7 +9,8 @@ const setState = (component, obj) => {
 };
 
 const scripts = [
-  'store/localstore',
+  'lib/localstore',
+  'lib/search',
   'form/toast',
   'form/popup-delete',
   'book/book-dummy',

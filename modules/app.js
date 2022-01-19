@@ -16,13 +16,12 @@ const App = () => {
       </div>
     </div>
 
-    <div class="toast">
-    </div>
+    <div class="toast"></div>
   `;
 };
 
-const appHandler = {
-  set: function (state, key, value) {
+App.handler = {
+  set(state, key, value) {
     state[key] = value;
     if (key === 'isLoaded') {
       if (!value) return;
@@ -32,4 +31,4 @@ const appHandler = {
   },
 };
 
-App.state = new Proxy(appState, appHandler);
+App.state = new Proxy(appState, App.handler);

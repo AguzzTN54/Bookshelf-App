@@ -5,7 +5,7 @@ const BookForm = () => {
       <h2 style="text-align: center">
         ${data.id ? 'Edit Book Detail' : 'Add New Book'}
       </h2>
-      <form onsubmit="save(event,${data.id ? "'edit'" : "'add'"})">
+      <form onsubmit="BookForm.save(event,${data.id ? "'edit'" : "'add'"})">
         <div class="form-group">
           <label for="title">Book Title</label>
           <input
@@ -14,13 +14,13 @@ const BookForm = () => {
             id="title"
             required
             placeholder="Fantastic Beast and Where to Find Them"
-            value="${data.title || ''}"
+            value="${removeTag(data.title || '')}"
           />
         </div>
         <div class="form-group">
           <label for="author">Author</label>
           <input
-            value="${data.author || ''}"
+            value="${removeTag(data.author || '')}"
             type="text"
             name="author"
             id="author"
@@ -68,7 +68,7 @@ const BookForm = () => {
                   <i class="ba-edit-o" style="line-height: 0; padding-right: .3rem"></i>
                   Save Changes
                 </button>
-                <button class="cancel" onclick="cancel(event)"> Cancel </button>`
+                <button class="cancel" onclick="BookForm.cancel(event)"> Cancel </button>`
               : `<button type="submit">
                   <i class="ba-plus-o" style="line-height: 0; padding-right: .3rem"></i>
                   Add to Bookshelf
@@ -79,7 +79,7 @@ const BookForm = () => {
     </div>`;
 };
 
-const save = (e, mode) => {
+BookForm.save = (e, mode) => {
   e.preventDefault();
 
   const dataToSave = {};
@@ -92,7 +92,10 @@ const save = (e, mode) => {
   if (!('isComplete' in dataToSave)) dataToSave.isComplete = false;
 
   if (mode === 'edit') localBook.edit(BookForm.state.data.id, dataToSave);
-  else localBook.add(dataToSave);
+  else {
+    Header.clear();
+    localBook.add(dataToSave);
+  }
   setState(BookForm, { data: {} });
   setState(MainBooks, {
     books: sortByLatestModified(localBook.getAll()).map((item, i) => {
@@ -103,7 +106,7 @@ const save = (e, mode) => {
   setState(Toast, { msg: '<i class="ba-check"></i> Book Saved !' });
 };
 
-const cancel = (e) => {
+BookForm.cancel = (e) => {
   e.preventDefault();
   const bookListNum = $(`#book${BookForm.state.data.id}`);
   setState(BookForm, { data: {} });
