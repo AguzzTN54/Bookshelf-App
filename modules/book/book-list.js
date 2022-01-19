@@ -78,6 +78,18 @@ class BookList extends HTMLElement {
     `;
   }
 
+  _filter(filterby) {
+    if (filterby === 'lastModified')
+      this._books = sortByLatestModified(this._books);
+    if (filterby === 'latest') this._books = sortByLatestAdded(this._books);
+    if (filterby === 'title') this._books = sortByTitle(this._books);
+    if (filterby === 'author') this._books = sortByAuthor(this._books);
+    if (filterby === 'year') this._books = sortByYear(this._books);
+    if (filterby === 'reverse') this._books = this._books.reverse();
+    this._showBookList();
+    window.addEventListener('resize', this._setListContainerHeight.bind(this));
+  }
+
   connectedCallback() {
     this._type = this.getAttribute('type');
     this.render();
@@ -97,9 +109,22 @@ class BookList extends HTMLElement {
       this._type.slice(1, this._type.length);
 
     this.innerHTML = `
-      <h3>
-        ${heading}  
-      </h3>
+      <div class="top">
+        <h3>
+          ${heading}
+        </h3>
+        <div class="filter">
+          <button class="selected"> <i class="ba-filter"></i> Last Modified </button>
+          <button class="reverse"> <i class="ba-reverse"></i> </button>
+          <div class="option">
+            <a data-filterby="lastModified"> Last Modified </a>
+            <a data-filterby="latest"> Recently Added </a>
+            <a data-filterby="title"> Title </a>
+            <a data-filterby="author"> Author </a>
+            <a data-filterby="year"> Year </a>
+          </div>
+        </div>
+      </div>
       <div class="list">
         <ul class="book-list">
         </ul>
@@ -108,6 +133,28 @@ class BookList extends HTMLElement {
       <div class="pagination">
         <ul></ul>
       </div>`;
+
+    this._events();
+  }
+
+  _events() {
+    const toggle = () => this.querySelector('.option').classList.toggle('show');
+    const selected = this.querySelector('.selected');
+    selected.addEventListener('click', toggle);
+
+    this.querySelectorAll('.option a').forEach((target) => {
+      const filterby = target.getAttribute('data-filterby');
+      const text = target.innerText;
+      target.addEventListener('click', () => {
+        selected.innerHTML = `<i class="ba-filter"></i> ${text}`;
+        toggle();
+        this._filter(filterby);
+      });
+    });
+
+    this.querySelector('.reverse').addEventListener('click', () => {
+      this._filter('reverse');
+    });
   }
 }
 

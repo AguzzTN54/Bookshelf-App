@@ -12,12 +12,12 @@ const MainBooks = () => {
     query.length > 0
       ? `
           Discovering <span>${bookCount} </span>
-          Book${unfinished > 0 ? 's' : ''}
+          Book${unfinished > 1 ? 's' : ''}
           for <span> "${query}" </span>
         `
       : `
           You have <span> ${unfinished}
-            Book${unfinished > 0 ? 's' : ''}
+            Book${unfinished > 1 ? 's' : ''}
           </span> to read
         `;
 

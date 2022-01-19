@@ -75,12 +75,91 @@
   font-size: 0.9rem;
 }
 
+book-list .top {
+  padding: 0.3rem 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .book-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
+
+/* Filter */
+book-list .filter {
+  height: 100%;
+  align-items: center;
+  position: relative;
+}
+
+book-list .filter .selected {
+  font-size: 0.8rem;
+  min-width: 90px;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 0.2rem;
+  background-color: #fff;
+  color: var(--primary-color);
+  margin-left: 0;
+}
+
+book-list .filter .selected:hover {
+  border-color: #ccc;
+}
+
+book-list .filter .reverse {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  border-radius: 0.2rem;
+  transform: rotate(90deg);
+  padding: 0.3rem 0.35rem 0rem;
+  margin-left: 0;
+  margin-right: 2rem;
+}
+
+book-list .filter .option.show {
+  display: flex;
+  animation: popup-container 0.35s forwards;
+  pointer-events: unset;
+}
+
+book-list .option {
+  width: calc(100% - 2rem);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  z-index: 10;
+  flex-direction: column;
+  background-color: #fff;
+  font-size: 0.8rem;
+  border: 1px solid var(--primary-color);
+  border-radius: 0.3rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+book-list .option a {
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+  border-bottom: 1px solid var(--secondary-color);
+  transition: all 0.2s;
+  background-color: #fff;
+  color: #555;
+}
+book-list .option a:last-child() {
+  border-bottom: 0;
+}
+
+book-list .option a:hover {
+  background-color: #f9f9f9;
+}
+
+/* Item */
 
 .book-list li {
   list-style: none;
@@ -261,6 +340,7 @@ book-item::before {
 
 .toast-body {
   position: fixed;
+  text-align: center;
   bottom: 2.5rem;
   right: 3rem;
   color: #559e76;
@@ -295,6 +375,10 @@ book-item::before {
 @media screen and (max-width: 500px) {
   .container .info {
     justify-content: space-between;
+  }
+
+  book-list .filter .reverse {
+    margin-right: 0;
   }
 
   book-item {
