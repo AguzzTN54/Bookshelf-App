@@ -12,6 +12,9 @@ const Header = () => {
         <button>
           <i class="ba-search"></i>
         </button>
+        <button class="close" onclick="Header.clear(event)">
+          <i class="ba-close"></i>
+        </button>
       </form>
     </div>
     <div class="right">
@@ -28,9 +31,14 @@ Header.query = (event) => {
   event.preventDefault();
   const query = event.target.value.trim().toLowerCase();
   setState(MainBooks, { query });
+
+  const close = $('header form .close');
+  if (query.length > 0) close.classList.add('show');
+  else close.classList.remove('show');
 };
 
-Header.clear = () => {
+Header.clear = (event) => {
+  event?.preventDefault();
   $('header').innerHTML = Header();
   setState(MainBooks, { query: '' });
 };

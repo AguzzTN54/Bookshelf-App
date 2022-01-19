@@ -50,6 +50,22 @@ header button {
   cursor: pointer;
 }
 
+header .close {
+  left: unset;
+  right: 0;
+  color: initial;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s;
+}
+header .close.show {
+  opacity: 0.2;
+  pointer-events: unset;
+}
+header .close.show:hover {
+  opacity: 0.4;
+}
+
 header h1 {
   font-weight: 800;
 }
