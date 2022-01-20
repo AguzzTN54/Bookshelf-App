@@ -70,11 +70,11 @@ class BookList extends HTMLElement {
   _emptyBook() {
     const bookContainer = this.querySelector('.book-list');
     const msg =
-      this._type === 'unfinished' ? 'Add More Book' : 'Read More Book';
+      this._type === 'unfinished'
+        ? 'No Book to read, <br/> You can <span> Add More Book</span>'
+        : 'No Book to show, <br/> You can <span> Read More Book </span>';
     bookContainer.innerHTML = `
-      <div class="empty">
-        No Book to show, <br/> You can <span>${msg}</span>
-      </div>
+      <div class="empty"> ${msg} </div>
     `;
   }
 
@@ -86,6 +86,7 @@ class BookList extends HTMLElement {
     if (filterby === 'author') this._books = sortByAuthor(this._books);
     if (filterby === 'year') this._books = sortByYear(this._books);
     if (filterby === 'reverse') this._books = this._books.reverse();
+    this._pageActive = 1;
     this._showBookList();
     window.addEventListener('resize', this._setListContainerHeight.bind(this));
   }
@@ -138,7 +139,12 @@ class BookList extends HTMLElement {
   }
 
   _events() {
-    const toggle = () => this.querySelector('.option').classList.toggle('show');
+    const toggle = (act) => {
+      const div = this.querySelector('.option');
+      if (act === 'close') div.classList.remove('show');
+      else div.classList.toggle('show');
+    };
+
     const selected = this.querySelector('.selected');
     selected.addEventListener('click', toggle);
 
@@ -154,6 +160,10 @@ class BookList extends HTMLElement {
 
     this.querySelector('.reverse').addEventListener('click', () => {
       this._filter('reverse');
+    });
+
+    this.addEventListener('click', (e) => {
+      if (!e.target.classList.contains('selected')) toggle('close');
     });
   }
 }

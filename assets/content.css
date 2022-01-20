@@ -92,6 +92,7 @@ book-list .top {
 /* Filter */
 book-list .filter {
   height: 100%;
+  display: flex;
   align-items: center;
   position: relative;
 }
